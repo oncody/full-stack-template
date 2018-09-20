@@ -1,15 +1,14 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const webpackHotLog = require('webpack/hot/log');
+const commonWebpackConfig = require('./common-webpack-config');
 
 webpackHotLog.setLogLevel('none');
 
-module.exports = {
+let config = {
   mode: 'none',
   target: 'web',
-  stats: 'none',
-  devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
     './client/client.js'
@@ -18,8 +17,10 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
+    new FriendlyErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({template: './client/index.html'}),
-    new FriendlyErrorsWebpackPlugin()
   ]
 };
+
+module.exports = Object.assign(config, commonWebpackConfig);

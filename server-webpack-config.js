@@ -1,13 +1,12 @@
-const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const commonWebpackConfig = require('./common-webpack-config');
 
 const hotWebpackClient = 'webpack/hot/poll?500';
-const hotWebpackLog = 'webpack/hot/log';
 
-module.exports = {
+let config = {
   entry: [
     hotWebpackClient,
     './server/server'
@@ -17,23 +16,24 @@ module.exports = {
     ignored: /node_modules/,
     poll: 500,
   },
-  stats: 'none',
   target: 'node',
   mode: 'none',
-  devtool: 'cheap-module-eval-source-map',
   externals: [
     nodeExternals(
       {
         whitelist: [
           hotWebpackClient,
-          hotWebpackLog
+          'webpack/hot/log'
         ]
       }
     )
   ],
   plugins: [
+    new FriendlyErrorsPlugin(),
     new StartServerPlugin('main.js'),
     new CleanWebpackPlugin(['dist']),
-    new FriendlyErrorsWebpackPlugin()
   ]
 };
+
+module.exports = Object.assign(config, commonWebpackConfig);
+console.log(module.exports);
