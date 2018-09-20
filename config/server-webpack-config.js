@@ -6,6 +6,7 @@ const commonWebpackConfig = require('./common-webpack-config');
 
 let config = {
   entry: [
+    './server/server'
   ],
   target: 'node',
   plugins: [
@@ -36,6 +37,5 @@ module.exports = (env, argv) => {
     config.externals = [nodeExternals()];
   }
 
-  config.entry.push('./server/server');
   return Object.assign({}, config, commonWebpackConfig(env, argv));
 };
