@@ -21,7 +21,7 @@ const config = {
 };
 
 module.exports = () => {
-  if (projectConfig.environment === 'development') {
+  if (projectConfig.environment === projectConfig.development) {
     objectMerger.merge(config, devWebpackConfig());
   }
 

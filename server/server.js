@@ -1,12 +1,11 @@
 const http = require('http');
+const expressServer = require('./express-server');
+const projectConfig = require('../config/config');
 
-const server = http.createServer(require('./express-server'));
-let currentExpressServer = require('./express-server');
+const server = http.createServer(expressServer);
+let currentExpressServer = expressServer;
 
-const PORT = 8080;
-
-console.log(`App listening on port ${PORT}!\n`);
-server.listen(PORT);
+server.listen(projectConfig.port);
 
 if (module.hot) {
   module.hot.accept('./express-server', () => {

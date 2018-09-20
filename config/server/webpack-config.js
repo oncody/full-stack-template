@@ -18,7 +18,7 @@ const config = {
 };
 
 module.exports = () => {
-  if (projectConfig.environment === 'development') {
+  if (projectConfig.environment === projectConfig.development) {
     objectMerger.merge(config, devConfig());
   } else {
     objectMerger.merge(config, prodConfig());
