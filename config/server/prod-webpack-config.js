@@ -1,11 +1,9 @@
 const nodeExternals = require('webpack-node-externals');
 
-let config = {
+const config = {
   externals: [
     nodeExternals()
-  ],
+  ]
 };
 
-module.exports = () => {
-  return config;
-};
+module.exports = () => config;

@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const webpackHotLog = require('webpack/hot/log');
 
-let config = {
+const config = {
   mode: 'development',
   entry: [
     'webpack-hot-middleware/client?reload=true'

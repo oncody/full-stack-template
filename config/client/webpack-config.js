@@ -1,9 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const commonWebpackConfig = require('../common/dev-webpack-config');
+const projectConfig = require('../config');
+const commonWebpackConfig = require('../common/webpack-config');
 const devWebpackConfig = require('./dev-webpack-config');
 const objectMerger = require('../../object-merger');
 
-let config = {
+const config = {
   target: 'web',
   mode: 'production',
   entry: [
@@ -13,12 +14,14 @@ let config = {
     publicPath: '/'
   },
   plugins: [
-    new HtmlWebpackPlugin({template: './client/index.html'}),
+    new HtmlWebpackPlugin({
+      template: './client/index.html'
+    })
   ]
 };
 
-module.exports = (env, argv) => {
-  if (argv.mode === 'development') {
+module.exports = () => {
+  if (projectConfig.environment === 'development') {
     objectMerger.merge(config, devWebpackConfig());
   }
 

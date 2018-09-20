@@ -1,6 +1,6 @@
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
-let config = {
+const config = {
   stats: 'none',
   devtool: 'cheap-module-eval-source-map',
   plugins: [
@@ -8,6 +8,4 @@ let config = {
   ]
 };
 
-module.exports = () => {
-  return config;
-};
+module.exports = () => config;

@@ -10,17 +10,17 @@ server.listen(PORT);
 
 if (module.hot) {
   module.hot.accept('./express-server', () => {
-    if(currentExpressServer) {
+    if (currentExpressServer) {
       server.removeListener('request', currentExpressServer);
     }
     try {
-      let newExpressServer = require('./express-server');
+      const newExpressServer = require('./express-server');
       if (newExpressServer) {
         currentExpressServer = newExpressServer;
         server.on('request', currentExpressServer);
       }
-    } catch(err) {
-      console.log('Error refreshing server routes: ' + err);
+    } catch (err) {
+      console.log(`Error refreshing server routes: ${err}`);
     }
   });
 }

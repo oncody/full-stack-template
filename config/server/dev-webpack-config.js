@@ -2,11 +2,11 @@ const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
 const hotWebpackClient = 'webpack/hot/poll?500';
 
-let config = {
+const config = {
   watch: true,
   watchOptions: {
     ignored: /node_modules/,
-    poll: 500,
+    poll: 500
   },
   externals: [
     nodeExternals({
@@ -20,9 +20,8 @@ let config = {
     hotWebpackClient
   ],
   plugins: [
-    new StartServerPlugin('main.js')]
+    new StartServerPlugin('main.js')
+  ]
 };
 
-module.exports = () => {
-  return config;
-};
+module.exports = () => config;
