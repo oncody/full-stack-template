@@ -13,9 +13,10 @@ if (module.hot) {
       server.removeListener('request', currentExpressServer);
     }
     try {
-      // eslint-disable-next-line global-require
       // Need to require inline to reload this upon hot reload
+      // eslint-disable-next-line global-require
       const newExpressServer = require('./express-server');
+
       if (newExpressServer) {
         currentExpressServer = newExpressServer;
         server.on('request', currentExpressServer);
