@@ -1,8 +1,8 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const commonWebpackConfig = require('./common-dev-webpack-config');
-const devConfig = require('./server-dev-webpack-config');
-const prodConfig = require('./server-prod-webpack-config');
-const objectMerger = require('../object-merger');
+const commonWebpackConfig = require('../common/dev-webpack-config');
+const devConfig = require('./dev-webpack-config');
+const prodConfig = require('./prod-webpack-config');
+const objectMerger = require('../../object-merger');
 
 let config = {
   target: 'node',
@@ -21,7 +21,5 @@ module.exports = (env, argv) => {
     objectMerger.merge(config, prodConfig());
   }
 
-  objectMerger.merge(config, commonWebpackConfig(env, argv));
-  console.log(config);
-  return config;
+  return objectMerger.merge(config, commonWebpackConfig(env, argv));
 };

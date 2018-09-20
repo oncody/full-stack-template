@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const commonWebpackConfig = require('./common-dev-webpack-config');
-const devWebpackConfig = require('./client-dev-webpack-config');
-const objectMerger = require('../object-merger');
+const commonWebpackConfig = require('../common/dev-webpack-config');
+const devWebpackConfig = require('./dev-webpack-config');
+const objectMerger = require('../../object-merger');
 
 let config = {
   target: 'web',
