@@ -18,7 +18,6 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({template: './client/index.html'}),
     new FriendlyErrorsWebpackPlugin()

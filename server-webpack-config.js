@@ -3,12 +3,9 @@ const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const webpackHotLog = require('webpack/hot/log');
 
 const hotWebpackClient = 'webpack/hot/poll?500';
 const hotWebpackLog = 'webpack/hot/log';
-
-webpackHotLog.setLogLevel('none');
 
 module.exports = {
   entry: [
@@ -35,7 +32,6 @@ module.exports = {
     )
   ],
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
     new StartServerPlugin('main.js'),
     new CleanWebpackPlugin(['dist']),
     new FriendlyErrorsWebpackPlugin()
