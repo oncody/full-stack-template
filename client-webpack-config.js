@@ -4,23 +4,29 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const webpackHotLog = require('webpack/hot/log');
 const commonWebpackConfig = require('./common-webpack-config');
 
-webpackHotLog.setLogLevel('none');
-
 let config = {
-  mode: 'none',
   target: 'web',
   entry: [
-    'webpack-hot-middleware/client?reload=true',
     './client/client.js'
   ],
   output: {
     publicPath: '/'
   },
   plugins: [
-    new FriendlyErrorsPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({template: './client/index.html'}),
   ]
 };
 
-module.exports = Object.assign(config, commonWebpackConfig);
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    webpackHotLog.setLogLevel('none');
+    config.entry.push('webpack-hot-middleware/client?reload=true');
+    config.plugins.push(new FriendlyErrorsPlugin());
+    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+    config.mode = 'development';
+  } else {
+    config.mode = 'production';
+  }
+
+  return Object.assign({}, config, commonWebpackConfig(env, argv));
+};

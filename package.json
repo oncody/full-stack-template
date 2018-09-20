@@ -2,7 +2,7 @@
   "name": "full-stack-template",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack --hot --mode=development   --config server-webpack-config.js"
+    "start": "webpack --hot --mode=development --config server-webpack-config.js"
   },
   "author": "Cody Smith",
   "license": "MIT",

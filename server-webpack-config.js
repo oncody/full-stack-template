@@ -4,36 +4,38 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const commonWebpackConfig = require('./common-webpack-config');
 
-const hotWebpackClient = 'webpack/hot/poll?500';
-
 let config = {
   entry: [
-    hotWebpackClient,
-    './server/server'
   ],
-  watch: true,
-  watchOptions: {
-    ignored: /node_modules/,
-    poll: 500,
-  },
   target: 'node',
-  mode: 'none',
-  externals: [
-    nodeExternals(
-      {
-        whitelist: [
-          hotWebpackClient,
-          'webpack/hot/log'
-        ]
-      }
-    )
-  ],
   plugins: [
-    new FriendlyErrorsPlugin(),
-    new StartServerPlugin('main.js'),
     new CleanWebpackPlugin(['dist']),
   ]
 };
 
-module.exports = Object.assign(config, commonWebpackConfig);
-console.log(module.exports);
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    const hotWebpackClient = 'webpack/hot/poll?500';
+    config.watch = true;
+    config.watchOptions = {
+      ignored: /node_modules/,
+      poll: 500,
+    };
+    config.externals = [
+      nodeExternals({
+        whitelist: [
+          hotWebpackClient,
+          'webpack/hot/log'
+        ]
+      })
+    ];
+    config.entry.push(hotWebpackClient);
+    config.plugins.push(new FriendlyErrorsPlugin());
+    config.plugins.push(new StartServerPlugin('main.js'));
+  } else {
+    config.externals = [nodeExternals()];
+  }
+
+  config.entry.push('./server/server');
+  return Object.assign({}, config, commonWebpackConfig(env, argv));
+};
