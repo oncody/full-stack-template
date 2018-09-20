@@ -1,6 +1,10 @@
+const PORT = 8080;
+const DEVELOPMENT = 'development';
+const PRODUCTION = 'production';
+
 module.exports = {
-  port: 8080,
-  development: 'development',
-  production: 'production',
-  environment: development
+  port: PORT,
+  development: DEVELOPMENT,
+  production: PRODUCTION,
+  environment: DEVELOPMENT
 };

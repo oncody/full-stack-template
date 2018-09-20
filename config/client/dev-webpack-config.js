@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const webpackHotLog = require('webpack/hot/log');
+const webpackLog = require('webpack/hot/log');
 
 const config = {
   entry: [
@@ -10,7 +10,6 @@ const config = {
   ]
 };
 
-module.exports = () => {
-  webpackHotLog.setLogLevel('none');
-  return config;
-};
+webpackLog.setLogLevel('none');
+
+module.exports = config;

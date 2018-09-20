@@ -5,7 +5,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('../../config/client/webpack-config');
 
 const router = express.Router();
-const compiler = webpack(webpackConfig());
+const compiler = webpack(webpackConfig);
 
 const devMiddleware = webpackDevMiddleware(compiler, {
   publicPath: '/',

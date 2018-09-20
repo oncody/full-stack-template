@@ -20,10 +20,10 @@ const config = {
   ]
 };
 
-module.exports = () => {
-  if (projectConfig.environment === projectConfig.development) {
-    objectMerger.merge(config, devWebpackConfig());
-  }
+if (projectConfig.environment === projectConfig.development) {
+  objectMerger.merge(config, devWebpackConfig);
+}
 
-  return objectMerger.merge(config, commonWebpackConfig(env, argv));
-};
+objectMerger.merge(config, commonWebpackConfig);
+
+module.exports = config;
