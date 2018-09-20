@@ -1,11 +1,11 @@
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const webpackHotLog = require('webpack/hot/log');
-const commonWebpackConfig = require('./common-webpack-config');
+const commonWebpackConfig = require('./common-dev-webpack-config');
+const devWebpackConfig = require('./client-dev-webpack-config');
+const objectMerger = require('../object-merger');
 
 let config = {
   target: 'web',
+  mode: 'production',
   entry: [
     './client/client.js'
   ],
@@ -19,14 +19,8 @@ let config = {
 
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {
-    webpackHotLog.setLogLevel('none');
-    config.entry.push('webpack-hot-middleware/client?reload=true');
-    config.plugins.push(new FriendlyErrorsPlugin());
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
-    config.mode = 'development';
-  } else {
-    config.mode = 'production';
+    objectMerger.merge(config, devWebpackConfig());
   }
 
-  return Object.assign({}, config, commonWebpackConfig(env, argv));
+  return objectMerger.merge(config, commonWebpackConfig(env, argv));
 };

@@ -1,14 +1,14 @@
-const nodeExternals = require('webpack-node-externals');
-const StartServerPlugin = require('start-server-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const commonWebpackConfig = require('./common-webpack-config');
+const commonWebpackConfig = require('./common-dev-webpack-config');
+const devConfig = require('./server-dev-webpack-config');
+const prodConfig = require('./server-prod-webpack-config');
+const objectMerger = require('../object-merger');
 
 let config = {
+  target: 'node',
   entry: [
     './server/server'
   ],
-  target: 'node',
   plugins: [
     new CleanWebpackPlugin(['dist']),
   ]
@@ -16,26 +16,12 @@ let config = {
 
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {
-    const hotWebpackClient = 'webpack/hot/poll?500';
-    config.watch = true;
-    config.watchOptions = {
-      ignored: /node_modules/,
-      poll: 500,
-    };
-    config.externals = [
-      nodeExternals({
-        whitelist: [
-          hotWebpackClient,
-          'webpack/hot/log'
-        ]
-      })
-    ];
-    config.entry.push(hotWebpackClient);
-    config.plugins.push(new FriendlyErrorsPlugin());
-    config.plugins.push(new StartServerPlugin('main.js'));
+    objectMerger.merge(config, devConfig());
   } else {
-    config.externals = [nodeExternals()];
+    objectMerger.merge(config, prodConfig());
   }
 
-  return Object.assign({}, config, commonWebpackConfig(env, argv));
+  objectMerger.merge(config, commonWebpackConfig(env, argv));
+  console.log(config);
+  return config;
 };
