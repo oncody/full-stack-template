@@ -1,7 +1,7 @@
 const projectConfig = require('../../config');
 const devConfig = require('./dev-webpack-config');
 const prodConfig = require('./prod-webpack-config');
-const objectMerger = require('../../../object-merger');
+const objectMerger = require('object-array-merger');
 
 const config = {
   module: {

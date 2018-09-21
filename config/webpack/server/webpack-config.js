@@ -3,7 +3,7 @@ const projectConfig = require('../../config');
 const commonWebpackConfig = require('../common/webpack-config');
 const devConfig = require('./dev-webpack-config');
 const prodConfig = require('./prod-webpack-config');
-const objectMerger = require('../../../object-merger');
+const objectMerger = require('object-array-merger');
 
 const config = {
   target: 'node',
