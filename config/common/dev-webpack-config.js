@@ -1,9 +1,10 @@
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const projectConfig = require('../config');
 
 const config = {
   mode: 'development',
   stats: 'none',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: projectConfig.devtool,
   plugins: [
     new FriendlyErrorsPlugin()
   ]

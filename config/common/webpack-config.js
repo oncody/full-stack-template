@@ -1,5 +1,6 @@
 const projectConfig = require('../config');
 const devConfig = require('./dev-webpack-config');
+const prodConfig = require('./prod-webpack-config');
 const objectMerger = require('../../object-merger');
 
 const config = {
@@ -20,6 +21,8 @@ const config = {
 
 if (projectConfig.environment === projectConfig.development) {
   objectMerger.merge(config, devConfig);
+} else {
+  objectMerger.merge(config, prodConfig);
 }
 
 module.exports = config;

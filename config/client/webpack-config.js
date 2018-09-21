@@ -6,16 +6,17 @@ const objectMerger = require('../../object-merger');
 
 const config = {
   target: 'web',
-  mode: 'production',
-  entry: [
-    './client/client.js'
-  ],
   output: {
-    publicPath: '/'
+    path: projectConfig.publicBuildPath,
+    filename: projectConfig.clientOutputName,
+    publicPath: projectConfig.publicPath
   },
+  entry: [
+    projectConfig.clientEntryFile
+  ],
   plugins: [
     new HtmlWebpackPlugin({
-      template: './client/index.html'
+      template: projectConfig.htmlEntryFile
     })
   ]
 };

@@ -7,12 +7,16 @@ const objectMerger = require('../../object-merger');
 
 const config = {
   target: 'node',
+  output: {
+    path: projectConfig.buildPath,
+    filename: projectConfig.serverOutputName
+  },
   entry: [
-    './server/server'
+    projectConfig.serverEntryFile
   ],
   plugins: [
     new CleanWebpackPlugin([
-      'dist'
+      projectConfig.buildPath
     ])
   ]
 };
