@@ -7,7 +7,7 @@ const projectConfig = require('../../../config/config');
 
 const router = express.Router();
 
-if(projectConfig.environment === projectConfig.development) {
+if (projectConfig.environment === projectConfig.development) {
   const compiler = webpack(webpackConfig);
 
   const devMiddleware = webpackDevMiddleware(compiler, {

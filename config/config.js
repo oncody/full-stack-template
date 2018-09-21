@@ -5,13 +5,13 @@ const PRODUCTION = 'production';
 
 module.exports = {
   port: 8080,
-  buildPath: '' + path.resolve('build'),
-  publicBuildPath: '' + path.resolve('build', 'public'),
+  buildPath: `${path.resolve('build')}`,
+  publicBuildPath: `${path.resolve('build', 'public')}`,
   serverOutputName: 'server.js',
   clientOutputName: 'client.js',
-  serverEntryFile: '' + path.resolve('src', 'server', 'server.js'),
-  clientEntryFile: '' + path.resolve('src', 'client', 'client.js'),
-  htmlEntryFile: '' + path.resolve('src', 'client', 'index.html'),
+  serverEntryFile: String(path.resolve('src', 'server', 'server.js')),
+  clientEntryFile: String(path.resolve('src', 'client', 'client.js')),
+  htmlEntryFile: `${path.resolve('src', 'client', 'index.html')}`,
   publicPath: '/',
   devtool: 'cheap-module-eval-source-map',
   pollMs: 500,
