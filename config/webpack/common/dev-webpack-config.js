@@ -1,5 +1,5 @@
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const projectConfig = require('../config');
+const projectConfig = require('../../config');
 
 const config = {
   mode: 'development',

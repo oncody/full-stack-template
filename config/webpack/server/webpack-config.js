@@ -1,9 +1,9 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const projectConfig = require('../config');
+const projectConfig = require('../../config');
 const commonWebpackConfig = require('../common/webpack-config');
 const devConfig = require('./dev-webpack-config');
 const prodConfig = require('./prod-webpack-config');
-const objectMerger = require('../../object-merger');
+const objectMerger = require('../../../object-merger');
 
 const config = {
   target: 'node',

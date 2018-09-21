@@ -1,6 +1,6 @@
 const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
-const projectConfig = require('../config');
+const projectConfig = require('../../config');
 const hotWebpackClient = `webpack/hot/poll?${projectConfig.pollMs}`;
 
 const config = {
