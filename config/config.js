@@ -12,7 +12,7 @@ module.exports = {
   serverEntryFile: String(path.resolve('src', 'server', 'server.js')),
   clientEntryFile: String(path.resolve('src', 'client', 'client.js')),
   htmlEntryFile: `${path.resolve('src', 'client', 'index.html')}`,
-  publicPath: '/',
+  publicRoute: '/',
   devtool: 'cheap-module-eval-source-map',
   pollMs: 500,
   development: DEVELOPMENT,

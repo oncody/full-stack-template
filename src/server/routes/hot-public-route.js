@@ -11,7 +11,7 @@ if (projectConfig.environment === projectConfig.development) {
   const compiler = webpack(webpackConfig);
 
   const devMiddleware = webpackDevMiddleware(compiler, {
-    publicPath: projectConfig.publicPath,
+    publicPath: projectConfig.publicRoute,
     logLevel: 'silent'
   });
 

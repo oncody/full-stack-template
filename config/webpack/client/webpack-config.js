@@ -9,7 +9,7 @@ const config = {
   output: {
     path: projectConfig.publicBuildPath,
     filename: projectConfig.clientOutputName,
-    publicPath: projectConfig.publicPath
+    publicPath: projectConfig.publicRoute
   },
   entry: [
     projectConfig.clientEntryFile
