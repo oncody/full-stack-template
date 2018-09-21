@@ -1,4 +1,3 @@
-
 // todo: move you to own project
 function merge(source, target) {
   for (const key of Object.keys(target)) {
