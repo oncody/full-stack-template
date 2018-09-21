@@ -4,7 +4,7 @@ const DEVELOPMENT = 'development';
 const PRODUCTION = 'production';
 const BUILD_DIRECTORY = 'build';
 const PUBLIC_DIRECTORY = 'public';
-
+const SOURCE_DIRECTORY = 'src';
 
 module.exports = {
   port: 8080,
@@ -14,9 +14,9 @@ module.exports = {
   publicBuildPath: '' + path.resolve(BUILD_DIRECTORY, PUBLIC_DIRECTORY),
   serverOutputName: 'server.js',
   clientOutputName: 'client.js',
-  serverEntryFile: './server/server',
-  clientEntryFile: './client/client',
-  htmlEntryFile: './client/index.html',
+  serverEntryFile: '' + path.resolve(SOURCE_DIRECTORY, 'server', 'server.js'),
+  clientEntryFile: '' + path.resolve(SOURCE_DIRECTORY, 'client', 'client.js'),
+  htmlEntryFile: '' + path.resolve(SOURCE_DIRECTORY, 'client', 'index.html'),
   publicPath: '/',
   devtool: 'cheap-module-eval-source-map',
   pollMs: 500,
