@@ -19,8 +19,9 @@ module.exports = {
   htmlEntryFile: './client/index.html',
   publicPath: '/',
   devtool: 'cheap-module-eval-source-map',
+  pollMs: 500,
   development: DEVELOPMENT,
   production: PRODUCTION,
-  // environment: DEVELOPMENT
-  environment: PRODUCTION
+  environment: DEVELOPMENT
+  // environment: PRODUCTION
 };

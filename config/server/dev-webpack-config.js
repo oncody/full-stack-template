@@ -1,16 +1,14 @@
 const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
 const projectConfig = require('../config');
-const hotWebpackClient = 'webpack/hot/poll?500';
+const hotWebpackClient = `webpack/hot/poll?${projectConfig.pollMs}`;
 
 const config = {
-  // todo: is this needed?
   watch: true,
   watchOptions: {
     ignored: /node_modules/,
-    poll: 500
+    poll: projectConfig.pollMs
   },
-
   externals: [
     nodeExternals({
       whitelist: [
