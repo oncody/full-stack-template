@@ -13,7 +13,9 @@ const config = {
     webConfig.entryFile
   ],
   plugins: [
-    new HtmlWebpackPlugin({template: webConfig.entryHtmlFile})
+    new HtmlWebpackPlugin({
+      template: webConfig.entryHtmlFile
+    })
   ]
 };
 

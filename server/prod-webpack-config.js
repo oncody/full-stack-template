@@ -17,10 +17,10 @@ const config = {
   ],
   plugins: [
     new CleanWebpackPlugin([
-      serverConfig.buildPath], {
-        allowExternal: true,
-      }
-    )
+      serverConfig.buildPath
+    ], {
+      allowExternal: true
+    })
   ]
 };
 

@@ -30,8 +30,10 @@ const config = {
   plugins: [
     new FriendlyErrorsPlugin(),
     new StartServerPlugin(serverConfig.outputName),
-    new CleanWebpackPlugin([serverConfig.buildPath], {
-      allowExternal: true,
+    new CleanWebpackPlugin([
+      serverConfig.buildPath
+    ], {
+      allowExternal: true
     })
   ],
   target: 'node',

@@ -18,15 +18,16 @@ const config = {
   plugins: [
     new FriendlyErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({template: webConfig.entryHtmlFile})
+    new HtmlWebpackPlugin({
+      template: webConfig.entryHtmlFile
+    })
   ],
   target: 'web',
   output: {
     path: webConfig.outputPath,
     filename: webConfig.outputName,
     publicPath: webConfig.publicRoute
-  },
+  }
 };
-
 
 module.exports = config;
