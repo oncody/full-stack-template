@@ -1,6 +1,6 @@
 const http = require('http');
 const expressServer = require('./express-server');
-const projectConfig = require('../../config/config');
+const projectConfig = require('../../config');
 
 const server = http.createServer(expressServer);
 let currentExpressServer = expressServer;
