@@ -12,7 +12,7 @@ if (commonConfig.environment === commonConfig.development) {
   const compiler = webpack(webpackConfig);
 
   const devMiddleware = webpackDevMiddleware(compiler, {
-    publicPath: webConfig.publicRoute,
+    publicPath: commonConfig.publicRoute,
     logLevel: 'silent'
   });
 

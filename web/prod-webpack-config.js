@@ -1,5 +1,6 @@
 const webConfig = require('./config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const commonConfig = require('../config');
 
 const config = {
   mode: 'production',
@@ -7,7 +8,7 @@ const config = {
   output: {
     path: webConfig.outputPath,
     filename: webConfig.outputName,
-    publicPath: webConfig.publicRoute
+    publicPath: commonConfig.publicRoute
   },
   entry: [
     webConfig.entryFile

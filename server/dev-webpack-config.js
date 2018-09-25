@@ -3,17 +3,17 @@ const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
 const commonConfig = require('../config');
 const serverConfig = require('./config');
-const hotWebpackClient = `webpack/hot/poll?${commonConfig.pollMs}`;
+const hotWebpackClient = `webpack/hot/poll?${commonConfig.webpackPollMs}`;
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
   mode: 'development',
   stats: 'none',
-  devtool: commonConfig.devtool,
+  devtool: commonConfig.webpackSourceMap,
   watch: true,
   watchOptions: {
     ignored: /node_modules/,
-    poll: commonConfig.pollMs
+    poll: commonConfig.webpackPollMs
   },
   externals: [
     nodeExternals({

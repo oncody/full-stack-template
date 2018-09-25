@@ -10,7 +10,7 @@ webpackLog.setLogLevel('none');
 const config = {
   mode: 'development',
   stats: 'none',
-  devtool: commonConfig.devtool,
+  devtool: commonConfig.webpackSourceMap,
   entry: [
     'webpack-hot-middleware/client?reload=true',
     webConfig.entryFile
@@ -26,7 +26,7 @@ const config = {
   output: {
     path: webConfig.outputPath,
     filename: webConfig.outputName,
-    publicPath: webConfig.publicRoute
+    publicPath: commonConfig.publicRoute
   }
 };
 

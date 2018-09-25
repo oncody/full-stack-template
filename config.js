@@ -3,9 +3,10 @@ const PRODUCTION = 'production';
 
 module.exports = {
   port: 8080,
-  devtool: 'cheap-module-eval-source-map',
-  pollMs: 500,
+  webpackSourceMap: 'cheap-module-eval-source-map',
+  webpackPollMs: 200,
+  publicRoute: '/',
   development: DEVELOPMENT,
   production: PRODUCTION,
-  environment: DEVELOPMENT
+  environment: PRODUCTION
 };
