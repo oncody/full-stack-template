@@ -2,9 +2,10 @@ const webpack = require('webpack');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const objectMerger = require('object-array-merger');
+const path = require('path');
 const webpackLog = require('webpack/hot/log');
 const webConfig = require('./config');
-const commonConfig = require('../config');
+const projectConfig = require('../config');
 const commonWebpackConfig = require('../webpack-config');
 
 webpackLog.setLogLevel('none');
@@ -12,7 +13,7 @@ webpackLog.setLogLevel('none');
 const config = {
   mode: 'development',
   stats: 'none',
-  devtool: commonConfig.webpackSourceMap,
+  devtool: projectConfig.webpackSourceMap,
   entry: [
     'webpack-hot-middleware/client?reload=true',
     webConfig.entryFile
@@ -26,9 +27,9 @@ const config = {
   ],
   target: 'web',
   output: {
-    path: webConfig.outputPath,
+    path: path.join(projectConfig.developmentBuildPath, webConfig.outputDirectory),
     filename: webConfig.outputName,
-    publicPath: commonConfig.publicRoute
+    publicPath: projectConfig.publicRoute
   }
 };
 

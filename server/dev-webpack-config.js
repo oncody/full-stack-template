@@ -33,14 +33,14 @@ const config = {
     new FriendlyErrorsPlugin(),
     new StartServerPlugin(serverConfig.outputName),
     new CleanWebpackPlugin([
-      serverConfig.buildPath
+      projectConfig.developmentBuildPath
     ], {
       allowExternal: true
     })
   ],
   target: 'node',
   output: {
-    path: serverConfig.buildPath,
+    path: projectConfig.developmentBuildPath,
     filename: serverConfig.outputName
   }
 };

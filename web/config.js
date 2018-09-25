@@ -1,8 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  entryFile: String(path.resolve('web', 'src', 'web.js')),
+  entryFile: `${path.resolve('web', 'src', 'index.js')}`,
   entryHtmlFile: `${path.resolve('web', 'src', 'index.html')}`,
-  outputPath: `${path.resolve('build', 'public')}`,
-  outputName: 'web.js'
+  outputDirectory: 'web',
+  outputName: 'index.js'
 };

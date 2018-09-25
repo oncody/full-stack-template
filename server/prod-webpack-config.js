@@ -2,6 +2,7 @@ const nodeExternals = require('webpack-node-externals');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const objectMerger = require('object-array-merger');
 const serverConfig = require('./config');
+const projectConfig = require('../config');
 const commonWebpackConfig = require('../webpack-config');
 
 const config = {
@@ -11,7 +12,7 @@ const config = {
   ],
   target: 'node',
   output: {
-    path: serverConfig.buildPath,
+    path: projectConfig.productionBuildPath,
     filename: serverConfig.outputName
   },
   entry: [
@@ -19,7 +20,7 @@ const config = {
   ],
   plugins: [
     new CleanWebpackPlugin([
-      serverConfig.buildPath
+      projectConfig.productionBuildPath
     ], {
       allowExternal: true
     })
