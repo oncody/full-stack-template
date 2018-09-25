@@ -1,6 +1,8 @@
-const webConfig = require('./config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const objectMerger = require('object-array-merger');
+const webConfig = require('./config');
 const commonConfig = require('../config');
+const commonWebpackConfig = require('../webpack-config');
 
 const config = {
   mode: 'production',
@@ -19,5 +21,7 @@ const config = {
     })
   ]
 };
+
+objectMerger.merge(config, commonWebpackConfig);
 
 module.exports = config;

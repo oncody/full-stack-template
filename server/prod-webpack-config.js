@@ -1,6 +1,8 @@
 const nodeExternals = require('webpack-node-externals');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const objectMerger = require('object-array-merger');
 const serverConfig = require('./config');
+const commonWebpackConfig = require('../webpack-config');
 
 const config = {
   mode: 'production',
@@ -23,5 +25,7 @@ const config = {
     })
   ]
 };
+
+objectMerger.merge(config, commonWebpackConfig);
 
 module.exports = config;

@@ -1,9 +1,11 @@
+const webpack = require('webpack');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const commonConfig = require('../config');
-const webConfig = require('./config');
+const objectMerger = require('object-array-merger');
 const webpackLog = require('webpack/hot/log');
+const webConfig = require('./config');
+const commonConfig = require('../config');
+const commonWebpackConfig = require('../webpack-config');
 
 webpackLog.setLogLevel('none');
 
@@ -29,5 +31,7 @@ const config = {
     publicPath: commonConfig.publicRoute
   }
 };
+
+objectMerger.merge(config, commonWebpackConfig);
 
 module.exports = config;

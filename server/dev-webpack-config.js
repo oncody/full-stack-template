@@ -1,19 +1,21 @@
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
-const commonConfig = require('../config');
-const serverConfig = require('./config');
-const hotWebpackClient = `webpack/hot/poll?${commonConfig.webpackPollMs}`;
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const objectMerger = require('object-array-merger');
+const serverConfig = require('./config');
+const projectConfig = require('../config');
+const commonWebpackConfig = require('../webpack-config');
+const hotWebpackClient = `webpack/hot/poll?${projectConfig.webpackPollMs}`;
 
 const config = {
   mode: 'development',
   stats: 'none',
-  devtool: commonConfig.webpackSourceMap,
+  devtool: projectConfig.webpackSourceMap,
   watch: true,
   watchOptions: {
     ignored: /node_modules/,
-    poll: commonConfig.webpackPollMs
+    poll: projectConfig.webpackPollMs
   },
   externals: [
     nodeExternals({
@@ -42,5 +44,7 @@ const config = {
     filename: serverConfig.outputName
   }
 };
+
+objectMerger.merge(config, commonWebpackConfig);
 
 module.exports = config;
