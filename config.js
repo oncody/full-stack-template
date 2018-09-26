@@ -1,9 +1,7 @@
 const path = require('path');
 
-const DEVELOPMENT = 'development';
-const PRODUCTION = 'production';
 const BUILD_DIRECTORY = 'build';
-const DEV_BUILD_DIRECTORY = 'dev-build';
+const DEV_BUILD_DIRECTORY = 'dev-server';
 const WEB_OUTPUT_DIRECTORY = 'web';
 
 module.exports = {
@@ -11,11 +9,10 @@ module.exports = {
   webpackSourceMap: 'cheap-module-eval-source-map',
   webpackPollMs: 200,
   publicRoute: '/',
-  productionWebOutputPath: `${path.resolve(BUILD_DIRECTORY, WEB_OUTPUT_DIRECTORY)}`,
-  developmentWebOutputPath: `${path.resolve(DEV_BUILD_DIRECTORY, WEB_OUTPUT_DIRECTORY)}`,
-  productionBuildPath: `${path.resolve(BUILD_DIRECTORY)}`,
+  developmentEnvironment: 'development',
   developmentBuildPath: `${path.resolve(DEV_BUILD_DIRECTORY)}`,
-  development: DEVELOPMENT,
-  production: PRODUCTION,
-  environment: PRODUCTION
+  developmentWebOutputPath: `${path.resolve(DEV_BUILD_DIRECTORY, WEB_OUTPUT_DIRECTORY)}`,
+  productionEnvironment: 'production',
+  productionBuildPath: `${path.resolve(BUILD_DIRECTORY)}`,
+  productionWebOutputPath: `${path.resolve(BUILD_DIRECTORY, WEB_OUTPUT_DIRECTORY)}`
 };

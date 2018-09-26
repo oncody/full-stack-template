@@ -2,15 +2,16 @@
   "name": "full-stack-template",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --config server/prod-webpack-config.js && webpack --config web/prod-webpack-config.js",
+    "build": "webpack --mode=production --config server/prod-webpack-config.js && webpack --mode=production --config web/prod-webpack-config.js",
     "lint": "eslint --fix **/*.js",
-    "start-dev": "webpack --hot --config server/dev-webpack-config.js",
-    "start-prod": "node build/server"
+    "dev-server": "webpack --mode=development --hot --config server/dev-webpack-config.js",
+    "production": "cross-env NODE_ENV=production node build/server"
   },
   "author": "Cody Smith",
   "license": "MIT",
   "dependencies": {
     "clean-webpack-plugin": "0.1.19",
+    "cross-env": "5.2.0",
     "eslint": "5.6.0",
     "eslint-loader": "2.1.1",
     "express": "4.16.3",
