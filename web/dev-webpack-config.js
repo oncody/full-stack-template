@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const objectMerger = require('object-array-merger');
-const path = require('path');
 const webpackLog = require('webpack/hot/log');
 const webConfig = require('./config');
 const projectConfig = require('../config');
@@ -27,7 +26,7 @@ const config = {
   ],
   target: 'web',
   output: {
-    path: path.join(projectConfig.developmentBuildPath, webConfig.outputDirectory),
+    path: projectConfig.developmentWebOutputPath,
     filename: webConfig.outputName,
     publicPath: projectConfig.publicRoute
   }
