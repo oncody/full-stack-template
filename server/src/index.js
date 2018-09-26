@@ -22,6 +22,8 @@ if (module.hot) {
         server.on('request', currentExpressServer);
       }
     } catch (err) {
+      // for now using console.log
+      // eslint-disable-next-line no-console
       console.log(`Error refreshing server routes: ${err}`);
     }
   });
