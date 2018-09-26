@@ -1,12 +1,25 @@
 const rules = [
   {
-    enforce: 'pre',
+    // enforce: 'pre',
     test: /\.js$/,
     exclude: /node_modules/,
-    loader: 'eslint-loader',
-    options: {
-      fix: true
-    }
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          // presets: [
+            // 'flow'
+          // ]
+        }
+      },
+      {
+        loader: 'eslint-loader',
+        options: {
+          fix: true,
+          configFile: '.eslintrc.js'
+        }
+      }
+    ]
   }
 ];
 

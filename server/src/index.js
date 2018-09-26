@@ -1,3 +1,5 @@
+// @flow
+
 const http = require('http');
 const expressServer = require('./express-server');
 const projectConfig = require('../../config');

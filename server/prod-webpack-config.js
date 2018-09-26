@@ -1,3 +1,5 @@
+// @flow
+
 const nodeExternals = require('webpack-node-externals');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const objectMerger = require('object-array-merger');

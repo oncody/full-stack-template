@@ -1,3 +1,5 @@
+// @flow
+
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');

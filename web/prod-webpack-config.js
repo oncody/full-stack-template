@@ -1,3 +1,5 @@
+// @flow
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const objectMerger = require('object-array-merger');
 const webConfig = require('./config');
