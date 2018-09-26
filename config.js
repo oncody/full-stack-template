@@ -1,3 +1,5 @@
+const path = require('path');
+
 const DEVELOPMENT = 'development';
 const PRODUCTION = 'production';
 
