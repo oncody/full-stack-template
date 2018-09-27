@@ -1,3 +1,6 @@
 // @flow
 
-document.getElementById('main-div').innerHTML = 'webpack-middleware is working!';
+const mainDiv = document.getElementById('main-div');
+if (mainDiv) {
+  mainDiv.innerHTML = 'webpack-middleware is working!';
+}

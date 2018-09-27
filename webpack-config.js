@@ -1,24 +1,28 @@
+// presets: [
+// 'flow'
+// ]
+
+const babelLoader = {
+  loader: 'babel-loader',
+  options: {}
+};
+
+const eslintLoader = {
+  loader: 'eslint-loader',
+  options: {
+    fix: true,
+    configFile: '.eslintrc.js'
+  }
+};
+
+// enforce: 'pre',
 const rules = [
   {
-    // enforce: 'pre',
     test: /\.js$/,
     exclude: /node_modules/,
     use: [
-      {
-        loader: 'babel-loader',
-        options: {
-          // presets: [
-            // 'flow'
-          // ]
-        }
-      },
-      {
-        loader: 'eslint-loader',
-        options: {
-          fix: true,
-          configFile: '.eslintrc.js'
-        }
-      }
+      babelLoader,
+      eslintLoader
     ]
   }
 ];
