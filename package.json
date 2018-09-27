@@ -2,7 +2,7 @@
   "name": "full-stack-template",
   "version": "1.0.0",
   "scripts": {
-    "clean": "",
+    "clean": "rimraf build & rimraf dev-server",
     "build": "webpack --mode=production --config server/prod-webpack-config.js && webpack --mode=production --config web/prod-webpack-config.js",
     "flow": "flow",
     "lint": "eslint --fix **/*.js",
