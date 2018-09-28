@@ -1,14 +1,11 @@
 // @flow
 
-// resolve: ,
-// id:
-declare var require: {
-  (id: string): any;
-  context(
-    directory: string,
-    useSubdirectories: boolean,
-    regExp: RegExp
-  ): {
-    keys(): Array<string>
-  }
-};
+// eslint-disable-next-line no-unused-vars
+// declare var require: {
+//   (id: string): any;
+//   context(
+//     directory: string,
+//     useSubdirectories: boolean,
+//     regExp: RegExp
+//   ): any
+// };

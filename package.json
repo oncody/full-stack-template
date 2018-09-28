@@ -5,6 +5,7 @@
     "clean": "rimraf build & rimraf dev-server",
     "build": "webpack --mode=production --config server/prod-webpack-config.js && webpack --mode=production --config web/prod-webpack-config.js",
     "flow": "flow",
+    "flow-typed": "flow-typed install",
     "lint": "eslint --fix **/*.js",
     "dev-server": "webpack --mode=development --hot --config server/dev-webpack-config.js",
     "production": "cross-env NODE_ENV=production node build/server"
@@ -27,6 +28,7 @@
     "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-flowtype-errors": "3.6.0",
     "flow-bin": "0.81.0",
+    "flow-typed": "2.5.1",
     "express": "4.16.3",
     "friendly-errors-webpack-plugin": "1.7.0",
     "html-webpack-plugin": "3.2.0",
