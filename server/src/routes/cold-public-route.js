@@ -1,5 +1,3 @@
-// @flow
-
 const express = require('express');
 const projectConfig = require('../../../config');
 

@@ -1,6 +1,5 @@
-// @flow
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 const objectMerger = require('object-array-merger');
 const webConfig = require('./config');
 const projectConfig = require('../config');
@@ -18,9 +17,10 @@ const config = {
     webConfig.entryFile
   ],
   plugins: [
-    new HtmlWebpackPlugin({
+    new HtmlPlugin({
       template: webConfig.entryHtmlFile
-    })
+    }),
+    new CompressionPlugin()
   ]
 };
 

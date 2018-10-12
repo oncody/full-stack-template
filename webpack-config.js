@@ -1,12 +1,3 @@
-// presets: [
-// 'flow'
-// ]
-
-const babelLoader = {
-  loader: 'babel-loader',
-  options: {}
-};
-
 const eslintLoader = {
   loader: 'eslint-loader',
   options: {
@@ -15,13 +6,11 @@ const eslintLoader = {
   }
 };
 
-// enforce: 'pre',
 const rules = [
   {
     test: /\.js$/,
     exclude: /node_modules/,
     use: [
-      babelLoader,
       eslintLoader
     ]
   }
