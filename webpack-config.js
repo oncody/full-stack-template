@@ -8,16 +8,26 @@ const eslintLoader = {
 
 const rules = [
   {
-    test: /\.js$/,
-    exclude: /node_modules/,
-    use: [
-      eslintLoader
-    ]
+    test: /\.tsx?$/,
+    use: 'ts-loader',
+    exclude: /node_modules/
   }
+  // {
+  //   test: /\.js$/,
+  //   exclude: /node_modules/,
+  //   use: [
+  //     eslintLoader
+  //   ]
+  // }
 ];
+
+const extensions = [ '.tsx', '.ts', '.js' ];
 
 module.exports = {
   module: {
     rules
-  }
+  },
+  resolve: {
+    extensions
+  },
 };
