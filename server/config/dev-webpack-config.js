@@ -4,8 +4,8 @@ const StartServerPlugin = require('start-server-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const objectMerger = require('object-array-merger');
 const serverConfig = require('./config');
-const projectConfig = require('../config');
-const commonWebpackConfig = require('../webpack-config');
+const projectConfig = require('../../config');
+const commonWebpackConfig = require('../../webpack-config');
 const hotWebpackClient = `webpack/hot/poll?${projectConfig.webpackPollMs}`;
 
 const config = {

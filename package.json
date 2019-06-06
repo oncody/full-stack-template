@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "clean": "rimraf build & rimraf dev-server",
-    "build": "webpack --mode=production --config server/prod-webpack-config.js && webpack --mode=production --config web/prod-webpack-config.js",
+    "build": "webpack --mode=production --config server/config/prod-webpack-config.js && webpack --mode=production --config web/config/prod-webpack-config.js",
     "lint": "eslint --fix **/*.js",
-    "dev-server": "webpack --mode=development --hot --config server/dev-webpack-config.js",
+    "dev-server": "webpack --mode=development --hot --config server/config/dev-webpack-config.js",
     "production": "cross-env NODE_ENV=production node build/server"
   },
   "author": "Cody Smith",
@@ -13,6 +13,7 @@
   "dependencies": {
     "compression": "1.7.3",
     "express": "4.16.3",
+    "npm": "^6.9.0",
     "path": "0.12.7"
   },
   "devDependencies": {

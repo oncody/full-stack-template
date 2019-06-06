@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const objectMerger = require('object-array-merger');
 const webpackLog = require('webpack/hot/log');
 const webConfig = require('./config');
-const projectConfig = require('../config');
-const commonWebpackConfig = require('../webpack-config');
+const projectConfig = require('../../config');
+const commonWebpackConfig = require('../../webpack-config');
 
 webpackLog.setLogLevel('none');
 

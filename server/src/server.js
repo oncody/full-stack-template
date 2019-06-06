@@ -1,21 +1,22 @@
 const http = require('http');
-const expressServer = require('./express-server');
+const innerServer = require('./inner-server');
 const projectConfig = require('../../config');
 
-const server = http.createServer(expressServer);
-let currentExpressServer = expressServer;
+const server = http.createServer(innerServer);
+let currentExpressServer = innerServer;
 
 server.listen(projectConfig.port);
 
 if (module.hot) {
-  module.hot.accept('./express-server', () => {
+  module.hot.accept('./inner-server', () => {
     if (currentExpressServer) {
       server.removeListener('request', currentExpressServer);
     }
+
     try {
       // Need to require inline to hot reload
       // eslint-disable-next-line global-require
-      const newExpressServer = require('./express-server');
+      const newExpressServer = require('./inner-server');
 
       if (newExpressServer) {
         currentExpressServer = newExpressServer;
