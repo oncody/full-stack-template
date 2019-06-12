@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entryFile: `${path.resolve('web', 'src', 'index.ts')}`,
-  entryHtmlFile: `${path.resolve('web', 'src', 'index.html')}`,
+  entryFile: `${path.resolve('web', 'src', 'index.js.ts')}`,
+  entryHtmlFile: `${path.resolve('web', 'src', 'index.js.html')}`,
   outputName: 'web.js'
 };
